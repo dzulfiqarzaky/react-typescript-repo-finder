@@ -1,6 +1,6 @@
 # react-typescript-repo-finder
 
-this is a simple website meant to find a user of github and their repository on github. This project is build using react, typescript, styled-component, antd, axios, jest. i tried to not change the design as much as posible from the requested design.
+this is a simple website meant to find a user of github and their repository on github. This project is build using react, typescript, styled-component, antd, axios, skelleton-loading, jest. i tried to not change the design as much as posible from the requested design.
 
 
 About why i choose particular installed dependencies
@@ -120,6 +120,14 @@ this one is based, i can use only fetch after all. i wanted to install react-que
     };
 ```
 it's a simple code just to check if the data of particular users of github is already there or not, if it is, i dont have to fetch again, i just have to change the open = true, so the dropdown will show the list of repos.
+
+# skeleton
+this one is so popular, its clean and people use it everywhere.
+i just wanted to show you this particular code on ./components/UserList.ts
+```
+  <Skeleton count={showTextSearch.length <= 10 ? 5 : 1} height={50} />
+```
+the showText is used for when user input the username on github, when the name is long, the user shown will be less, so i just used one skeleton, if the name is not that long, i used five because we can only shown 5 list of users on the github.
 
 # jest
 i tried to install this so i can test the integration and component pages, but the installation have some beef with the es6 modules, i didnt really know why even the simple npm test is not working, i tried to find a couple of fixing in the internet and tried a lot of it but it's still not working,
