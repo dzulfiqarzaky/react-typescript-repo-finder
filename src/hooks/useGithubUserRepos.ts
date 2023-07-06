@@ -1,6 +1,6 @@
 import {UserRepoData, UserRepo, GithubUser} from '../common/interfaces';
 import axios from 'axios';
-import {useState} from 'react';
+import { useState } from 'react';
 
 const useGithubUserRepos = () => {
     const [userReposList, setUserReposList] = useState<UserRepoData[]>([]);
@@ -27,7 +27,7 @@ const useGithubUserRepos = () => {
           const errorObj = err as Error;
           const data: UserRepo[] = [
             {
-              name: errorObj.name,
+              name: "Error",
               description: errorObj.message,
               stargazers_count: 'error',
             },

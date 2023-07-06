@@ -3,6 +3,7 @@ import { Collapse } from 'antd';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import NotFound from './NotFound';
+import Welcome from './Welcome';
 import { UserListProps } from '../common/interfaces';
   
   const UserList: React.FC<UserListProps> = ({
@@ -12,6 +13,7 @@ import { UserListProps } from '../common/interfaces';
     reposItems,
     onChange,
     showTextSearch,
+    error,
   }) => {
     return (
       <>
@@ -24,8 +26,12 @@ import { UserListProps } from '../common/interfaces';
             expandIconPosition="end"
             items={reposItems}
           />
-        ) : (
+        ) : error ? (
+          <NotFound text="Error" />
+        ) : showTextSearch ? (
           <NotFound text="Users" />
+        ) : (
+          <Welcome />
         )}
       </>
     );

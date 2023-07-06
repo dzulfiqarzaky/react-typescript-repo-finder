@@ -35,10 +35,16 @@ import { ChangeEvent, FormEvent } from 'react';
     reposItems: RepoItem[];
     onChange: (key: string | string[]) => void;
     showTextSearch: string;
+    error: boolean;
   }
 
   export interface SearchFormProps {
     onSubmit: (e: FormEvent<HTMLFormElement>) => void;
     value: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  }
+
+  export interface UserReposProps {
+    reposList: UserRepo[];
+    index: number;
   }

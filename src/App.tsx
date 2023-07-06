@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const [githubUsersSearchText, setGithubUsersSearchText] = useState('');
   const [showTextSearch, setShowTextSearch] = useState('');
   const [activeKeys, setActiveKeys] = useState<(string | number)[]>([]);
-  const { githubUsers, loadingGithubUsers, searchRepos } = useGithubSearch();
+  const { error, githubUsers, loadingGithubUsers, searchRepos } = useGithubSearch();
   const { userReposList, getUserRepos, setUserReposList } = useGithubUserRepos();
 
   const searchUsers = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
@@ -49,7 +49,7 @@ const App: React.FC = () => {
   }, [githubUsers, githubUsersSearchText, reposItems, setActiveKeys, setShowTextSearch, getUserRepos]);
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
+    <MainContainer>
       <SearchForm
         onSubmit={searchUsers}
         value={githubUsersSearchText}
@@ -64,12 +64,18 @@ const App: React.FC = () => {
         activeKey={activeKeys}
         reposItems={reposItems}
         onChange={onChange}
+        error={error}
         showTextSearch={showTextSearch}
       />
-    </div>
+    </MainContainer>
   );
 };
 
+const MainContainer = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+`;
 const ShowingText = styled.p<{ show: string | boolean }>`
   opacity: ${(props) => (props.show ? 1 : 0)};
   transition: opacity 0.1s ease-in-out;

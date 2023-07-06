@@ -3,20 +3,6 @@ import { Input, Button } from 'antd';
 import styled from 'styled-components';
 import { SearchFormProps } from '../common/interfaces';
 
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledInput = styled(Input)`
-  width: 100%;
-  margin-bottom: 10px;
-`;
-
-const StyledButton = styled(Button)`
-  width: 100%;
-`;
 
 const SearchForm: React.FC<SearchFormProps> = ({ onSubmit, value, onChange }) => {
   return (
@@ -33,5 +19,20 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSubmit, value, onChange }) =>
     </FormContainer>
   );
 };
+
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledInput = styled(Input)`
+  width: 100%;
+  margin-bottom: 10px;
+`;
+
+const StyledButton = styled(Button)`
+  width: 100%;
+`;
 
 export default SearchForm;
